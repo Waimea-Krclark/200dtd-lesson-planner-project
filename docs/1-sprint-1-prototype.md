@@ -12,9 +12,9 @@ Develop a prototype that simulates the key functionality of the system, then tes
 
 ## Initial Database Design
 
-Replace this text with notes regarding the DB design.
+This first design of a database allows for each day of the week to have lessons assigned to it. Lessons can have notes and resources attached to it as well.
 
-![SCREENSHOT OF DB DESIGN](screenshots/example.png)
+![SCREENSHOT OF DB DESIGN](screenshots/InitialDB.png)
 
 
 ---

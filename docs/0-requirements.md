@@ -44,7 +44,7 @@ To follow this implication I will need to make sure my project follows the commo
 
 ## End-User
 
-End user implications are that the outcome suits the needs of the End-User and satisfies the their requirements of the outcome.
+End user implications are that the outcome suits the needs of the End-User and satisfies their requirements of the outcome.
 
 ### Relevance to the System
 
@@ -58,42 +58,42 @@ For this implication I will need to design my project in a way that is useful fo
 
 ## Functionality
 
-Replace this text with a clear explanation of what the implication means.
+Functionality Implications refer to how well the website functions, both for its intended purpose and for the users. 
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+My project will need to function well, and poor programming and bugs could stop it from working how it should. If it didn't function well for users and work for its intended purpose of a lesson planner, it would not be useful. 
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+Design the website to ensure that it meets the needs that it is made for. Bugfix as the bugs are discovered to make sure that the site functions well. Test with my end user to make sure that it works in the way that it should to fulfill the requirements. It will also need to handle bad user inputs incase a mistake is made, it should be able to be fixed without breaking the site.
 
 
 
 ## Aesthetic
 
-Replace this text with a clear explanation of what the implication means.
+Aesthetic Implications are about the design and style of the site, as well as its appeal to the end user.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+The website needs to be designed in a clear, easy to understand way to suit users with a wide range of technical skills. If it was styled poorly it could be more confusing to use or take away from the user experience.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+Colours and layout should suit the context of a lesson planner to work well. The website should be designed in a clear, uncluttered way to clearly communicate the website's functions. Layout in a way where linked things are grouped and use good fonts and colour choices to make understandable for users.
 
 
 
 ## Accessibility
 
-Replace this text with a clear explanation of what the implication means.
+Accessibility Implications involve making sure that the outcome works and is useable by any end-user, regardless of their abilities.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+The end-users of this project are teachers, and students also could find this project useful, so their will be a wide range of users, each with different technical skills, and also some could have disabilities like colour blindness that could make using websites a challenge.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will need to design my project in a way to make it more useable for anyone, making the lesson planner easy to use, with clear navigation will help users with little skill with computers, and also using colours, fonts and layouts that are readable and contrast well helping users with issues with their vision. Adding alt text to elements like images.
 
 
