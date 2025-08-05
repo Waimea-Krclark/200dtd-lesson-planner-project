@@ -25,18 +25,48 @@ The first stage of prototyping was to explore how the UI might 'flow' between st
 
 This Figma demo shows the initial design for the UI 'flow':
 
-**FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT**
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/9o7kaYPTT1KXkWoocYRqqH/Prototype--Copy-?node-id=1-3&p=f&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A3&embed-host=share" allowfullscreen></iframe>
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+When I showed my Figma Design for the UI flow of my project to my mother, who is a teacher and the end-user of my project, I mostly got positive feedback, but there were some changes I could make to improve the user's experience and help users understand how to navigate the application.
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+#### Vertical Days on week display
 
-*IMPROVED FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+My initial design had the days displayed in rows, and my end-user said that most teaching resources display days of the week using columns, and it would be more familiar and comfortable for most teachers if the days were columns instead of rows.
 
+Original:
+![Weekly Display in rows](screenshots/Days-Rows.png)
+
+New:
+![Weekly Display in columns](<screenshots/Days - Columns.png>)
+
+My end-user said that the change was good when I presented the new version.
+
+#### Displaying lessons
+
+The end-user also said that having each lesson open to a separate page when click on it could get a bit confusing, as well as being slow to navigate.
+
+I made it so that all the details for each lesson were displayed on the day overview page, but when I showed this new version to my end-user, she said that the page could end up being cluttered and confusing with all the info for multiple lessons being onscreen at once and I should make it so that the details for lessons can be shown and hidden to reduce confusion and make the application easier to use.
+
+I redesigned the lessons to be a dropdown that will display the details of the lesson when clicked, meaning that only the info for a specific lesson is shown at once. Which my end-user said was a much better solution that made the site more efficient and easier to use.
+
+![Lesson in dropdown format](<screenshots/Dropdown Lesson.png>)
+
+#### Resources
+
+My end-user said that having to open a new page to add a resource wasn't needed, and as there wasn't much information for a resource that needed to be added, it could be done from the resources page to make it faster and easier.
+
+![New Resource Form](<screenshots/Resource Form.png>)
+
+One other bit of feedback I had was that accessing the resources was hard because the only way it could be reached was through the lesson view where the resources could be seen for a lesson. I added a navigation through to the resources page from the home page to allow easier navigation.
+
+![Navigation button from homepage for resources](<screenshots/Home Page Navigation.png>)
+
+Updated User Interface Flow design.
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/CFCr7Gb2JYkCOzlKJsgVxc/Prototype?scaling=contain&content-scaling=fixed&page-id=0%3A1&node-id=1-64&starting-point-node-id=1%3A3&embed-host=share" allowfullscreen></iframe>
 
 ---
 
