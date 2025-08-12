@@ -103,15 +103,37 @@ Having established the layout of the UI screens, the prototype was refined visua
 
 This Figma demo shows the UI with refinements applied:
 
-*FIGMA REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/do5EUVjTaCTzlDDNU7uen4/Lesson-Planner-UI-Design?node-id=1-4&p=f&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&embed-host=share" allowfullscreen></iframe>
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+I tested my Figma UI designs along with colour schemes to my End-User to get an idea of how the actual application will look, and whether or not it functions well for its purpose, and looks clear, navigable and accessible to users. 
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+#### Colours
+
+I used the realtime colors website to help choose a colour scheme for the application that is aesthetic, but also clear and easy to navigate. I showed multiple colour schemes to my end-user to get feedback on them and to see what would fit best with the site.
+
+![Red and yellow colours](screenshots/ColourScheme1.png)
+
+My end user said that with a scheme like this, the background wasn't dark enough and didn't contrast well against the other colours. She also thought that these sort of colours would not fit well with the application.
+
+![Blue and pink colours](screenshots/ColourScheme2.png)
+
+My end user thought that a colour scheme like this would be too bright and busy, which would slow down navigation for some users, and could cause some to struggle with using the website.
+
+![Muted colours](screenshots/ColourScheme3.png)
+
+This one had some positive feedback, saying that the dark background contrasted well and the other colours work well together, and are easy on the eyes.
+
+![Blues and blacks colours](screenshots/ColourScheme4.png)
+
+My end user liked this one the most, saying that the blues worked well on the black background, and the other blues worked well together making the site easier to navigate and understand at a glance, the colours weren't so muted that they didn't contrast, but they also weren't busy and bright.
+
+![Example UI with colours](screenshots/ColourSchemePage.png)
+
+I added this colour scheme to my UI and my End-user 
 
 *FIGMA IMPROVED REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
 
