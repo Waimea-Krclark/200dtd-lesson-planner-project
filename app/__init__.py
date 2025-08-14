@@ -30,7 +30,15 @@ init_datetime(app)  # Handle UTC dates in timestamps
 #-----------------------------------------------------------
 @app.get("/")
 def index():
-    return render_template("pages/home.jinja")
+    with connect_db() as client:
+        # Get all the things from the DB
+        sql = "SELECT id, name FROM days ORDER BY id DESC"
+        params = []
+        result = client.execute(sql, params)
+        days = result.rows
+        print(days)
+        # And show them on the page
+        return render_template("pages/home.jinja", days=days)
 
 
 #-----------------------------------------------------------
@@ -48,7 +56,7 @@ def about():
 def show_all_things():
     with connect_db() as client:
         # Get all the things from the DB
-        sql = "SELECT id, name FROM things ORDER BY name ASC"
+        sql = "SELECT id, name FROM lessons ORDER BY name ASC"
         params = []
         result = client.execute(sql, params)
         things = result.rows

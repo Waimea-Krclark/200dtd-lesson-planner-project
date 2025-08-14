@@ -34,5 +34,28 @@
 
     <a href="/things" role="button">Go to the Things...</a>
 
+       <h1>DAYS</h1>
+
+
+    <article>
+
+        <ul>
+            {% for day in days %}
+
+                <li>
+                    <a href="/thing/{{ day.code }}">
+                        {{ day.name }}
+                    </a>
+                </li>
+
+            {% else %}
+
+                <p>None!</p>
+
+            {% endfor %}
+        </ul>
+
+    </article>
+
 {% endblock %}
 

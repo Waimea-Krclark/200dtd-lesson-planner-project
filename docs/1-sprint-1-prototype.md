@@ -103,7 +103,7 @@ Having established the layout of the UI screens, the prototype was refined visua
 
 This Figma demo shows the UI with refinements applied:
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/do5EUVjTaCTzlDDNU7uen4/Lesson-Planner-UI-Design?node-id=1-4&p=f&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/do5EUVjTaCTzlDDNU7uen4/Lesson-Planner-UI-Design?scaling=contain&content-scaling=fixed&page-id=0%3A1&node-id=1-4&embed-host=share" allowfullscreen></iframe>
 
 ### Testing
 
