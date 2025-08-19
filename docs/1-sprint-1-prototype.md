@@ -133,14 +133,23 @@ My end user liked this one the most, saying that the blues worked well on the bl
 
 ![Example UI with colours](screenshots/ColourSchemePage.png)
 
-I added this colour scheme to my UI and my End-user 
+I added this colour scheme to my UI and my End-user said that it looked well and fitted with the functionality of the website as the colours work well together but also contrast well making the website easier to navigate but also more aesthetic.
 
-*FIGMA IMPROVED REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+#### Time in week view
+
+![Old week view of lessons](screenshots/NoTimeLesson.png)
+
+My end-user said that it would be very helpful if the week view had the times of the lessons as well to make it easier at a glance to see when things are happening. I replaced the original lesson tiles with new ones that also displayed the time as well.
+
+![New view of lessons with time](screenshots/TimeLesson.png)
+
+My end-user thought that this was a much better version as the time shpuld be seeable at a glance as it is important.
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/TNjevGghWDFRBFwd5bT0lL/Lesson-Planner-UI-Design--Copy-?node-id=1-4&p=f&scaling=contain&content-scaling=fixed&page-id=0%3A1&embed-host=share" allowfullscreen></iframe>
 
 
 ---
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
-
+The sprint resulted in me having an idea of how my application will function, as well as the aesthetics and design of the website. My end-user is pleased with the outcome of the design and layout of the site, saying that it fits its purpose well. Feedback from my End-user allowed me to create a better outcome that will function more as intended. I now also have a good idea of what I'm aiming for moving forward with making a minimum viable product.
