@@ -1,0 +1,77 @@
+{#=====================================================
+  Thing page
+  - Shows details of a single thing
+  - Has a delete link to remove it
+=====================================================#}
+
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %}
+
+    Flask Demo - Single Thing
+
+{% endblock %}
+
+
+{% block content %}
+    
+
+    {% for retrieved in day %}
+        <section id="DayHeader">
+            <h1>{{ retrieved.date }}</h1>
+            <h1>{{ retrieved.name }}</h1>
+        </section>
+
+    {% else %}
+
+        <p>Error retrieving day</p>
+
+    {% endfor %}
+    
+
+
+    <article>
+
+        <ul>
+            {% for lesson in lessons %}
+
+                <li>
+                    <button id="{{ lesson.id }}" class="dropbtn" onclick='dropdown()'>
+                        {{ lesson.time }} {{ lesson.name }}
+                    </button>
+                    <article id="{{ lesson.id }}" class="DropdownCollapsed">
+                        {{ lesson.description }}
+                        Resources:
+                        <ul>
+                            {% for resource in resources %}
+                                {% if resource.lesson_id == lesson.id %}    
+                                    <li>
+                                        <a href="{{ resource.link }}"> {{ resource.name }}</a>
+                                    </li>
+                                    
+                                {% endif %}
+                            {% else %}
+                                <p>No Lessons</p>      
+                            {% endfor %}
+
+                            <a href="/resources/">View all</a>
+                        </ul>
+                        
+                        
+                    </article>
+
+                </li>
+
+            {% else %}
+
+                <p>None!</p>
+
+            {% endfor %}
+        </ul>
+
+    </article>
+
+
+{% endblock %}
+

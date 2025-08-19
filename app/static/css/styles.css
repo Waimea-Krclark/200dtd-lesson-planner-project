@@ -3,6 +3,7 @@
 =====================================================*/
 
 
+
 /* ABOUT PAGE -------------------------------------------- */
 
 #tech-stack {
@@ -33,3 +34,17 @@
 #messages .message.success { color: var(--pico-color-green-500); }
 #messages .message.error   { color: var(--pico-color-red-500); }
 
+/* DAY -------------------------------------------------------*/
+
+section#DayHeader {
+    display: flex;
+    gap: 1rem;
+}
+
+.DropdownCollapsed{
+    display: none;
+}
+    
+.DropdownOpen{
+    display: block;
+}

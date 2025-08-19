@@ -32,13 +32,17 @@ init_datetime(app)  # Handle UTC dates in timestamps
 def index():
     with connect_db() as client:
         # Get all the things from the DB
-        sql = "SELECT id, name FROM days ORDER BY id DESC"
+        sql = "SELECT id, name, code FROM days ORDER BY id DESC"
         params = []
         result = client.execute(sql, params)
         days = result.rows
+        sql = "SELECT id, name, day_code, time FROM lessons ORDER BY time ASC"
+        params = []
+        result = client.execute(sql, params)
+        lessons = result.rows
         print(days)
         # And show them on the page
-        return render_template("pages/home.jinja", days=days)
+        return render_template("pages/home.jinja", days=days, lessons = lessons)
 
 
 #-----------------------------------------------------------
@@ -52,17 +56,25 @@ def about():
 #-----------------------------------------------------------
 # Things page route - Show all the things, and new thing form
 #-----------------------------------------------------------
-@app.get("/things/")
-def show_all_things():
+@app.get("/day/<string:code>")
+def show_all_things(code):
     with connect_db() as client:
         # Get all the things from the DB
-        sql = "SELECT id, name FROM lessons ORDER BY name ASC"
+        sql = "SELECT * FROM lessons WHERE day_code=? ORDER BY time ASC"
+        params = [code]
+        result = client.execute(sql, params)
+        lessons = result.rows
+        sql = "SELECT name, date FROM days WHERE code=? ORDER BY name ASC"
+        params = [code]
+        result = client.execute(sql, params)
+        day = result.rows
+        sql = "SELECT id, name, lesson_id, link FROM resources ORDER BY name ASC"
         params = []
         result = client.execute(sql, params)
-        things = result.rows
+        resources = result.rows
 
         # And show them on the page
-        return render_template("pages/things.jinja", things=things)
+        return render_template("pages/day.jinja", lessons=lessons, day=day, resources=resources)
 
 
 #-----------------------------------------------------------
