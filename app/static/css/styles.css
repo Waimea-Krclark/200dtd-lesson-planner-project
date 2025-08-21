@@ -41,10 +41,24 @@ section#DayHeader {
     gap: 1rem;
 }
 
+.dropbtn{
+    width: 100%;
+}
+
 .DropdownCollapsed{
     display: none;
 }
     
 .DropdownOpen{
     display: block;
+}
+
+.dropdownarrow{
+    width: 3%;
+    transform: rotate(0deg);
+}
+
+.dropdownarrowActive{
+    width: 3%;
+    transform: rotate(180deg);
 }
