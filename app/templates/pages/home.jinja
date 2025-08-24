@@ -1,8 +1,7 @@
 {#=====================================================
   Home page
-  - Hero style greeting banner
-  - List of things passed in as 'things' array
-  - Form for adding a new thing
+  - Week display
+  - Lists lessons for each day
 =====================================================#}
 
 {% extends 'pages/base.jinja' %}
@@ -10,45 +9,38 @@
 
 {% block title %}
 
-    Flask Demo
+    Lesson Planner
 
 {% endblock %}
 
 
 {% block content %}
-       <h1>DAYS</h1>
-
 
     <article>
+        {% for day in days %}
 
-        <ul>
-            {% for day in days %}
+            <article class="day_article" onclick="location.href='/day/{{ day.code }}'">
+                <h2>{{ day.name }}</h2>
+                {% for lesson in lessons %}
 
-                <li>
-                    <a href="/day/{{ day.code }}">
-                        {{ day.name }}
-                        <article>
-                            <ul>
-                                {% for lesson in lessons %}
-                                    {% if lesson.day_code == day.code %}
-                                        <li>{{ lesson.time }} {{ lesson.name }}</li>
-                                    {% endif %}
-                                {% else %}
-                                    <p>No Lessons</p>                                
-                                {% endfor %}
+                    {% if lesson.day_code == day.code %}
 
-                                
-                            </ul>
-                        </article>
-                    </a>
-                </li>
+                        <p>{{ lesson.time }} {{ lesson.name }}</p>
 
-            {% else %}
+                    {% endif %}
 
-                <p>None!</p>
+                {% else %}
 
-            {% endfor %}
-        </ul>
+                    <p>No Lessons</p>  
+
+                {% endfor %}
+            </article>
+
+        {% else %}
+
+            <p>None!</p>
+
+        {% endfor %}
 
     </article>
 

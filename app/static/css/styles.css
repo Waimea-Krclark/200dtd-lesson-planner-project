@@ -55,10 +55,20 @@ section#DayHeader {
 
 .dropdownarrow{
     width: 3%;
-    transform: rotate(0deg);
+    transform: scaleY(1);
+    transition: all 200ms;
 }
 
 .dropdownarrowActive{
     width: 3%;
-    transform: rotate(180deg);
+    transform: scaleY(-1);
+    transition: all 200ms;
+}
+
+.day_article{
+    background-color:var(--pico-primary-background) ;
+}
+
+.day_article:hover{
+    background-color:var(--pico-primary-hover-background) ;
 }

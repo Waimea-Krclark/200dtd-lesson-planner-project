@@ -1,7 +1,7 @@
 {#=====================================================
-  Thing page
-  - Shows details of a single thing
-  - Has a delete link to remove it
+  Day page
+  - Shows lessons for a single day with details
+  - Has a delete link to remove lessons
 =====================================================#}
 
 {% extends 'pages/base.jinja' %}
@@ -9,25 +9,19 @@
 
 {% block title %}
 
-    Flask Demo - Single Thing
+    Lesson Planner - {{ day.name }}
 
 {% endblock %}
 
 
 {% block content %}
     
-    {% for retrieved in day %}
 
-        <section id="DayHeader">
-            <h1>{{ retrieved.date }}</h1>
-            <h1>{{ retrieved.name }}</h1>
-        </section>
+    <section id="DayHeader">
+        <h1>{{ day.date }}</h1>
+        <h1>{{ day.name }}</h1>
+    </section>
     
-    {% else %}
-
-        <p>Error retrieving day</p>
-    
-    {% endfor %}
     
     <article>   
         {% for lesson in lessons %}      
@@ -38,22 +32,28 @@
 
             <article id="{{ lesson.id }}" class="DropdownCollapsed">
                 {{ lesson.description }}
-                Resources:
+                <h4>Resources:</h4>
                 <ul>
                     {% for resource in resources %}
-                        {% if resource.lesson_id == lesson.id %}    
+
+                        {% if resource.lesson_id == lesson.id %}
+
                             <li>
                                 <a href="{{ resource.link }}"> {{ resource.name }}</a>
                             </li>
                             
                         {% endif %}
+
                     {% else %}
-                        <p>No Lessons</p>      
+
+                        <p>No Lessons</p>     
+
                     {% endfor %}
-                    <a href="/resources/">View all</a>
+                    <button href="/resources/">View all</button>   
                 </ul>
+                <a type="button" href="/delete/{{ lesson.id }}{{ day.code }}">Remove Lesson</a>
             </article>
-        
+            
         {% else %}
 
             <p>None!</p>

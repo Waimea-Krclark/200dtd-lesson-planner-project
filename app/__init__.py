@@ -54,20 +54,22 @@ def about():
 
 
 #-----------------------------------------------------------
-# Things page route - Show all the things, and new thing form
+# Day page route - Show all the lessons with details and options for a day
 #-----------------------------------------------------------
 @app.get("/day/<string:code>")
 def show_all_things(code):
     with connect_db() as client:
-        # Get all the things from the DB
+        # Get all the lessons from the DB
         sql = "SELECT * FROM lessons WHERE day_code=? ORDER BY time ASC"
         params = [code]
         result = client.execute(sql, params)
         lessons = result.rows
-        sql = "SELECT name, date FROM days WHERE code=? ORDER BY name ASC"
+        # Get the relevant date and name of the day 
+        sql = "SELECT code, name, date FROM days WHERE code=?"
         params = [code]
         result = client.execute(sql, params)
-        day = result.rows
+        day = result.__getitem__(0)
+        # Get all resources
         sql = "SELECT id, name, lesson_id, link FROM resources ORDER BY name ASC"
         params = []
         result = client.execute(sql, params)
@@ -100,10 +102,10 @@ def show_one_thing(id):
 
 
 #-----------------------------------------------------------
-# Route for adding a thing, using data posted from a form
+# Route for adding a lessons, using data posted from a form
 #-----------------------------------------------------------
 @app.post("/add")
-def add_a_thing():
+def add_a_lesson():
     # Get the data from the form
     name  = request.form.get("name")
     price = request.form.get("price")
@@ -112,29 +114,30 @@ def add_a_thing():
     name = html.escape(name)
 
     with connect_db() as client:
-        # Add the thing to the DB
-        sql = "INSERT INTO things (name, price) VALUES (?, ?)"
+        # Add the lesson to the DB
+        sql = "INSERT INTO lessons (name, price) VALUES (?, ?)"
         params = [name, price]
         client.execute(sql, params)
 
         # Go back to the home page
-        flash(f"Thing '{name}' added", "success")
-        return redirect("/things")
+        flash(f"lesson '{name}' added", "success")
+        return redirect("/")
 
 
 #-----------------------------------------------------------
-# Route for deleting a thing, Id given in the route
+# Route for deleting a lesson, Id given in the route
 #-----------------------------------------------------------
-@app.get("/delete/<int:id>")
-def delete_a_thing(id):
+@app.get("/delete/<int:id><string:day>")
+def delete_a_lesson(id, day):
     with connect_db() as client:
-        # Delete the thing from the DB
-        sql = "DELETE FROM things WHERE id=?"
+        # Delete the Lesson from the DB
+        sql = "DELETE FROM lessons WHERE id=?"
         params = [id]
         client.execute(sql, params)
 
         # Go back to the home page
-        flash("Thing deleted", "success")
-        return redirect("/things")
+        flash("Lesson deleted", "success")
+        # no work !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        return redirect("/day/{day}")
 
 
