@@ -41,6 +41,11 @@ section#DayHeader {
     gap: 1rem;
 }
 
+.resource{
+    display: flex;
+    justify-content: space-between;
+}
+
 .dropbtn{
     width: 100%;
 }

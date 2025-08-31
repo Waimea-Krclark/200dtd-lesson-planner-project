@@ -9,60 +9,53 @@
 
 {% block title %}
 
-    Flask Demo - All Things
+    Flask Demo - Add Lesson
 
 {% endblock %}
 
 
 {% block content %}
 
-    <h1>Things...</h1>
-
 
     <article>
 
-        <ul>
-            {% for thing in things %}
+        <h3>Add new lesson</h3>
 
-                <li>
-                    <a href="/thing/{{ thing.id }}">
-                        {{ thing.name }}
-                    </a>
-                </li>
+        <form action="/addLesson" method="POST">
+            <fieldset role="group">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Lesson Name"
+                    required
+                />
 
-            {% else %}
-
-                <p>None!</p>
-
-            {% endfor %}
-        </ul>
-
-    </article>
-
-
-    <article>
-
-        <h3>Add a New Thing...</h3>
-
-        <form action="/add" method="POST">
+                <input
+                    type="text"
+                    name="time"
+                    placeholder="Time in 24hr time (E.g. 13:00)"
+                    required
+                />
+            
+                <select name="day" aria-label="Select Day" required>
+                    <option selected disabled value="">
+                      Select Day
+                    </option>
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                    <option>Thursday</option>
+                    <option>Friday</option>
+                </select>
+            </fieldset>
 
             <input
                 type="text"
-                name="name"
-                placeholder="Name of new thing"
-                required
+                name="description"
+                placeholder="Description of the lesson"
             >
-
-            <input
-                type="number"
-                name="price"
-                min="0"
-                placeholder="Price in dollars"
-                required
-            >
-
-            <button>Add the Thing</button>
-
+            
+            <input type="submit" value="Add the Lesson"/>
         </form>
 
     </article>

@@ -40,7 +40,7 @@ def index():
         params = []
         result = client.execute(sql, params)
         lessons = result.rows
-        print(days)
+
         # And show them on the page
         return render_template("pages/home.jinja", days=days, lessons = lessons)
 
@@ -48,9 +48,9 @@ def index():
 #-----------------------------------------------------------
 # About page route
 #-----------------------------------------------------------
-@app.get("/about/")
+@app.get("/addlesson/")
 def about():
-    return render_template("pages/about.jinja")
+    return render_template("pages/addLesson.jinja")
 
 
 #-----------------------------------------------------------
@@ -82,47 +82,79 @@ def show_all_things(code):
 #-----------------------------------------------------------
 # Thing page route - Show details of a single thing
 #-----------------------------------------------------------
-@app.get("/thing/<int:id>")
-def show_one_thing(id):
+@app.get("/resources/")
+def show_resources():
     with connect_db() as client:
-        # Get the thing details from the DB
-        sql = "SELECT id, name, price FROM things WHERE id=?"
-        params = [id]
+        # Get the resources  from the DB
+        sql = "SELECT * FROM resources" 
+        params = []
         result = client.execute(sql, params)
+        resources = result.rows
 
-        # Did we get a result?
-        if result.rows:
-            # yes, so show it on the page
-            thing = result.rows[0]
-            return render_template("pages/thing.jinja", thing=thing)
+        sql = "SELECT id, name FROM lessons" 
+        params = []
+        result = client.execute(sql, params)
+        lessons = result.rows
 
-        else:
-            # No, so show error
-            return not_found_error()
-
+        return render_template("pages/resources.jinja", resources=resources, lessons=lessons)
 
 #-----------------------------------------------------------
 # Route for adding a lessons, using data posted from a form
 #-----------------------------------------------------------
-@app.post("/add")
+@app.post("/addLesson")
 def add_a_lesson():
     # Get the data from the form
     name  = request.form.get("name")
-    price = request.form.get("price")
+    time = request.form.get("time")
+    day = request.form.get("day")
+    description = request.form.get("description")
 
     # Sanitise the text inputs
     name = html.escape(name)
 
     with connect_db() as client:
+        # get the code of the selected day
+        sql = "SELECT code FROM days WHERE name=?"
+        params = [day]
+        result = client.execute(sql, params)
+        day = result.__getitem__(0)
         # Add the lesson to the DB
-        sql = "INSERT INTO lessons (name, price) VALUES (?, ?)"
-        params = [name, price]
+        sql = "INSERT INTO lessons (name, description, time, day_code) VALUES (?, ?, ?, ?)"
+        params = [name, description, time, day[0]]
         client.execute(sql, params)
 
         # Go back to the home page
         flash(f"lesson '{name}' added", "success")
         return redirect("/")
 
+#-----------------------------------------------------------
+# Route for adding a resources, using data posted from a form
+#-----------------------------------------------------------
+@app.post("/addResource")
+def add_a_resource():
+    # Get the data from the form
+    name  = request.form.get("name")
+    lesson = request.form.get("lesson")
+    link = request.form.get("link")
+    notes = request.form.get("notes")
+
+    # Sanitise the text inputs
+    name = html.escape(name)
+
+    with connect_db() as client:
+        # get the code of the selected day
+        sql = "SELECT id FROM lessons WHERE name=?"
+        params = [lesson]
+        result = client.execute(sql, params)
+        lesson = result.__getitem__(0)
+        # Add the lesson to the DB
+        sql = "INSERT INTO resources (name, notes, link, lesson_id) VALUES (?, ?, ?, ?)"
+        params = [name, notes, link, lesson[0]]
+        client.execute(sql, params)
+
+        # Go back to the home page
+        flash(f"resource '{name}' added", "success")
+        return redirect("/resources/")
 
 #-----------------------------------------------------------
 # Route for deleting a lesson, Id given in the route
@@ -135,9 +167,9 @@ def delete_a_lesson(id, day):
         params = [id]
         client.execute(sql, params)
 
-        # Go back to the home page
+        #returns back to the original day page
         flash("Lesson deleted", "success")
-        # no work !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        return redirect("/day/{day}")
+
+        return redirect(f"/day/{day}")
 
 
