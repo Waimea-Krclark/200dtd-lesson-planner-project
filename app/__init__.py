@@ -12,7 +12,7 @@ from app.helpers.session import init_session
 from app.helpers.db      import connect_db
 from app.helpers.errors  import init_error, not_found_error
 from app.helpers.logging import init_logging
-from app.helpers.time    import init_datetime, utc_timestamp, utc_timestamp_now
+from app.helpers.dates   import init_datetime, utc_datetime_str, utc_date_str, utc_time_str
 
 
 # Create the app
@@ -57,7 +57,7 @@ def about():
 # Day page route - Show all the lessons with details and options for a day
 #-----------------------------------------------------------
 @app.get("/day/<string:code>")
-def show_all_things(code):
+def show_all_lessons(code):
     with connect_db() as client:
         # Get all the lessons from the DB
         sql = "SELECT * FROM lessons WHERE day_code=? ORDER BY time ASC"
@@ -77,7 +77,6 @@ def show_all_things(code):
 
         # And show them on the page
         return render_template("pages/day.jinja", lessons=lessons, day=day, resources=resources)
-
 
 #-----------------------------------------------------------
 # Thing page route - Show details of a single thing
@@ -172,4 +171,18 @@ def delete_a_lesson(id, day):
 
         return redirect(f"/day/{day}")
 
+#-----------------------------------------------------------
+# Route for deleting a resource, Id given in the route
+#-----------------------------------------------------------
+@app.get("/remove/<int:id>")
+def delete_a_resource(id):
+    with connect_db() as client:
+        # Delete the resource from the DB
+        sql = "DELETE FROM resources WHERE id=?"
+        params = [id]
+        client.execute(sql, params)
 
+        #returns back to the resources page
+        flash("Lesson deleted", "success")
+
+        return redirect("/resources/")

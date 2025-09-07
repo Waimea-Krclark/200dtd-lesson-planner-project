@@ -27,7 +27,7 @@
         {% for lesson in lessons %}      
 
             <button id="{{ lesson.id }}" class="dropbtn" onclick='dropdown({{ lesson.id }})'>
-                {{ lesson.time }} {{ lesson.name }} <img src="/static/images/dropdown-arrow.svg" alt="Dropdown arrow" id="{{ lesson.id }}" class="dropdownarrow">
+                {{ lesson.time | nicetime }} {{ lesson.name }} <img src="/static/images/dropdown-arrow.svg" alt="Dropdown arrow" id="{{ lesson.id }}" class="dropdownarrow">
             </button>
 
             <article id="{{ lesson.id }}" class="DropdownCollapsed">

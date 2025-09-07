@@ -25,7 +25,7 @@
 
                     {% if lesson.day_code == day.code %}
 
-                        <p>{{ lesson.time }} {{ lesson.name }}</p>
+                        <p>{{ lesson.time | nicetime }} {{ lesson.name }}</p>
 
                     {% endif %}
 
