@@ -62,24 +62,9 @@ When I showed this fix to my end user, I got more feedback saying that for reada
 ![Final Time Display](screenshots/FixedTime.png)
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Resource displaying for lesson
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
-
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
-
----
-
-## Testing FEATURE NAME HERE
-
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+If no resources, doesnt tell user, coul be confisign
 
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
 
@@ -92,9 +77,24 @@ Replace this text with notes any improvements you made as a result of the testin
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Editing Resource
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+Resources aren't set in stone sp editing them = yes
+
+**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+
+### Changes / Improvements
+
+Replace this text with notes any improvements you made as a result of the testing.
+
+**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+
+
+---
+
+## Testing opening resource links
+
+no open in new page = bad
 
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
 

@@ -1,6 +1,6 @@
 #===========================================================
-# YOUR PROJECT TITLE HERE
-# YOUR NAME HERE
+# LESSON PLANNER
+# Kieran Clark
 #-----------------------------------------------------------
 # BRIEF DESCRIPTION OF YOUR PROJECT HERE
 #===========================================================
