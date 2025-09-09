@@ -33,25 +33,28 @@
             <article id="{{ lesson.id }}" class="DropdownCollapsed">
                 {{ lesson.description }}
                 <h4>Resources:</h4>
+
+                
+                {% set lesson_resources = resources | selectattr('lesson_id', 'equalto', lesson.id) | list %}
                 <ul>
-                    {% for resource in resources %}
+                    {% if lesson_resources %}
 
-                        {% if resource.lesson_id == lesson.id %}
+                        {% for resource in lesson_resources %}
 
-                            <li>
-                                <a href="{{ resource.link }}" target="_blank" rel="noopener noreferrer"> {{ resource.name }}</a>
-                            </li>
-                            
-                        {% endif %}
+                            <li><a href="{{ resource.link }}" target="_blank" rel="noopener noreferrer">{{ resource.name }}</a></li>
+
+                        {% endfor %}
 
                     {% else %}
 
-                        <p>No Lessons</p>     
+                        <p>No Resources</p>
 
-                    {% endfor %}
-                    <a type="button" href="/resources/">View all</a>   
+                    {% endif %}
+
+                    <a type="button" href="/resources/">View all</a>  
                 </ul>
-                <a type="button" href="/delete/{{ lesson.id }}{{ day.code }}"  onclick="return confirm('Are you sure you want to delete this lesson?');">Remove Lesson</a>
+
+                <a type="button" href="/delete/{{ lesson.id }}/{{ day.code }}"  onclick="return confirm('Are you sure you want to delete this lesson?');">Remove Lesson</a>
             </article>
             
         {% else %}

@@ -2,7 +2,7 @@
 # LESSON PLANNER
 # Kieran Clark
 #-----------------------------------------------------------
-# BRIEF DESCRIPTION OF YOUR PROJECT HERE
+# A weekly lesson planer with resources
 #===========================================================
 
 from flask import Flask, render_template, request, flash, redirect
@@ -46,7 +46,7 @@ def index():
 
 
 #-----------------------------------------------------------
-# About page route
+# Add Lesson page route
 #-----------------------------------------------------------
 @app.get("/addlesson/")
 def about():
@@ -79,7 +79,7 @@ def show_all_lessons(code):
         return render_template("pages/day.jinja", lessons=lessons, day=day, resources=resources)
 
 #-----------------------------------------------------------
-# Thing page route - Show details of a single thing
+# Resource page route - Show all resources
 #-----------------------------------------------------------
 @app.get("/resources/")
 def show_resources():
@@ -96,6 +96,30 @@ def show_resources():
         lessons = result.rows
 
         return render_template("pages/resources.jinja", resources=resources, lessons=lessons)
+    
+#-----------------------------------------------------------
+# Editing Resource Route
+#-----------------------------------------------------------
+@app.get("/editResource/<int:resource_id>/<int:lesson_id>")
+def edit_resource(resource_id, lesson_id):
+    with connect_db() as client:
+        # Get the resources  from the DB
+        sql = "SELECT * FROM resources WHERE id = ?" 
+        params = [resource_id]
+        result = client.execute(sql, params)
+        resource = result.__getitem__(0)
+
+        sql = "SELECT * FROM lessons WHERE id = ?" 
+        params = [lesson_id]
+        result = client.execute(sql, params)
+        current_lesson = result.__getitem__(0)
+
+        sql = "SELECT id, name FROM lessons" 
+        params = []
+        result = client.execute(sql, params)
+        lessons = result.rows
+
+        return render_template("pages/editResource.jinja", resource=resource, lessons=lessons, resource_id=resource_id, current_lesson=current_lesson)
 
 #-----------------------------------------------------------
 # Route for adding a lessons, using data posted from a form
@@ -156,9 +180,38 @@ def add_a_resource():
         return redirect("/resources/")
 
 #-----------------------------------------------------------
+# Route for editing a resources, using data posted from a form
+#-----------------------------------------------------------
+@app.post("/updateResource/<int:resource_id>")
+def edit_a_resource(resource_id):
+    # Get the data from the form
+    name  = request.form.get("name")
+    lesson = request.form.get("lesson")
+    link = request.form.get("link")
+    notes = request.form.get("notes")
+
+    # Sanitise the text inputs
+    name = html.escape(name)
+
+    with connect_db() as client:
+        # get the code of the selected day
+        sql = "SELECT id FROM lessons WHERE name=?"
+        params = [lesson]
+        result = client.execute(sql, params)
+        lesson = result.__getitem__(0)
+        # Add the lesson to the DB
+        sql = "UPDATE resources SET name = ?, notes = ?, link = ?, lesson_id = ? WHERE id = ?;"
+        params = [name, notes, link, lesson[0], resource_id]
+        client.execute(sql, params)
+
+        # Go back to the home page
+        flash(f"resource '{name}' updated", "success")
+        return redirect("/resources/")
+
+#-----------------------------------------------------------
 # Route for deleting a lesson, Id given in the route
 #-----------------------------------------------------------
-@app.get("/delete/<int:id><string:day>")
+@app.get("/delete/<int:id>/<string:day>")
 def delete_a_lesson(id, day):
     with connect_db() as client:
         # Delete the Lesson from the DB

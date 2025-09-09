@@ -1,0 +1,74 @@
+{#=====================================================
+  Things list page
+  - List of things passed in as 'things' array
+  - Form for adding a new thing
+=====================================================#}
+
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %}
+
+    Flask Demo - Add Lesson
+
+{% endblock %}
+
+
+{% block content %}
+
+
+    <article>
+        <h3>Edit resource: {{ resource.name }}</h3>
+
+        <form action="/updateResource/{{resource_id}}" method="POST">
+            <fieldset role="group">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Resource Name"
+                    value="{{ resource.name }}"
+                    required
+                />
+            
+                <select name="lesson" aria-label="Select Lesson" required >
+                    <option selected disabled value="">
+                      <p>{{ current_lesson.name }} (Current Lesson)</p>
+                    </option>
+
+                    {% for lesson in lessons %}
+
+                        {% if lesson.name == current_lesson.name %}
+
+                            <option selected>{{ lesson.name }}</option>
+                            
+                        {% else %}
+
+                            <option>{{ lesson.name }}</option>
+
+                        {%endif%}
+
+                    {% endfor %}
+                </select>
+            </fieldset>
+            
+            <input
+                type="text"
+                name="link"
+                placeholder="Paste Resource Link"
+                value="{{ resource.link }}"
+                required
+            />
+
+            <input
+                type="text"
+                name="notes"
+                placeholder="Short Note For Resource"
+                value="{{ resource.notes }}"
+            >
+
+            <input type="submit" value="Update Resource"/>
+        </form>
+    </article>
+
+{% endblock %}
+

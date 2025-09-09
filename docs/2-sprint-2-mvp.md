@@ -10,10 +10,9 @@ Develop a bare-bones, working web application that provides the key functionalit
 
 ## Implemented Database Schema
 
-Replace this text with notes regarding the DB schema.
+I used a similar database to the one I planned, but added an ID to days to make them be able to be ordered and retrieved correctly.
 
-![SCREENSHOT OF DB SCHEMA](screenshots/example.png)
-
+![Screenshot of DB Schema](screenshots/ImplementedDB.png)
 
 ---
 
@@ -23,6 +22,8 @@ The key functionality of the web app was implemented:
 
 ![Home Page](screenshots/OldMVPHome.png)
 ![Day Page](<screenshots/Old Dropdown.png>)
+![Add Lesson Form](<screenshots/Add Lesson.png>)
+![Resources and form](screenshots/ResourcesPage.png)
 
 ---
 
@@ -64,46 +65,46 @@ When I showed this fix to my end user, I got more feedback saying that for reada
 
 ## Testing Resource displaying for lesson
 
-If no resources, doesnt tell user, coul be confisign
+If lessons don't have any resources, it still displays as if there are, making it confusing for the user. My end-user said that setting up a different display for not having any resources would make it more clear.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![displaying empty resources](screenshots/NoResourceDisplay.png)
+
+![Old Code](screenshots/OldResourceDisplay.png)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+Using a Jinja filter, I can get only the relevant resources, which allows for the resources to display properly and work if there are none, rather than the old system which got all and sorted through them, meaning that even if none were showing, there where still resources there and it wouldn't dislay 'No Resources'
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![Displays no resources](<screenshots/DisplayResource.png>)
+
+![New Resource Code](screenshots/NewResourceDisplay.png)
 
 
 ---
 
 ## Testing Editing Resource
 
-Resources aren't set in stone sp editing them = yes
+Once a resource was created, you could not change anything about it and had to delete it then add a new one if you wanted to change anything. My end-user said that resources can change a lot or need details updated so being able to edit the resource whenever would allow for the website to be more efficient to use and also would be easier for users.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I made it so that the name, link and notes were able to be edited, but my end user said that the resource should be able to be shuffled between lessons if needed. So I changed the editing form so that it would find the lesson that the resource was attached to and allow it to be changed from a dropdown menu. From further feedback I made the original lesson display at the top of the dropdown so users can set it back if they decide against changing it but don't remember what it was originally.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![Editing Form](screenshots/EditingResource.png)
 
 
 ---
 
 ## Testing opening resource links
 
-no open in new page = bad
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+Resource links didn't open in a new tab and instead just loaded over the web application, my end-user thought that this was bad as it didnt allow for efficiency and would result in users losing the website while they are trying to use it.
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I changed how the url is opened so it opens in a new tab instead of using the one already open. My end user agreed that this makes the website better to use as the page wont be lost when opening links and allows for resources to easily be opened and viewed.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
+![Code to open in a new tab](screenshots/OpenNewTab.png)
 
 ---
 

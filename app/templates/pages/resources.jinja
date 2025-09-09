@@ -39,7 +39,8 @@
                 </p>
                 <p>{{ resource.notes }}</p>
 
-                <a role="button" href="/remove/{{ resource.id }}" onclick="return confirm('Are you sure you want to delete this lesson?');">Remove Resource</a>
+                <a role="button" href="/editResource/{{ resource.id }}/{{ resource.lesson_id }}" onclick="return confirm('Are you sure you want to edit this resource?');">Edit Resource</a>
+                <a role="button" href="/remove/{{ resource.id }}" onclick="return confirm('Are you sure you want to delete this resource?');">Remove Resource</a>
             </article>
             
 
