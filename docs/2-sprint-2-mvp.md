@@ -110,5 +110,5 @@ I changed how the url is opened so it opens in a new tab instead of using the on
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+The project is in a functional state that works well, and my end-user is pleased with the result. Getting it working was pretty streamlined, though I had some issues with the dropdowns and time displaying. With my application working, I can now focus on the design of the site, making it more accessible to my Users.
 

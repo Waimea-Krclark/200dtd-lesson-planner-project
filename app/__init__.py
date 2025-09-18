@@ -65,7 +65,7 @@ def show_all_lessons(code):
         result = client.execute(sql, params)
         lessons = result.rows
         # Get the relevant date and name of the day 
-        sql = "SELECT code, name, date FROM days WHERE code=?"
+        sql = "SELECT code, name FROM days WHERE code=?"
         params = [code]
         result = client.execute(sql, params)
         day = result.__getitem__(0)

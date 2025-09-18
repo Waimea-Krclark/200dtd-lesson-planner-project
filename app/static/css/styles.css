@@ -77,3 +77,8 @@ section#DayHeader {
 .day_article:hover{
     background-color:var(--pico-primary-hover-background) ;
 }
+
+.uppercase{
+    text-transform: uppercase;
+    color: var(--pico-primary-background);
+}
