@@ -34,6 +34,33 @@
 #messages .message.success { color: var(--pico-color-green-500); }
 #messages .message.error   { color: var(--pico-color-red-500); }
 
+
+/* HOME PAGE -------------------------------------------------*/
+
+.week_viewer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.day_article{
+    background-color:var(--pico-primary-background) ;
+    width: 19%;
+    min-height: 30rem;
+}
+
+.day_article:hover{
+    background-color:var(--pico-primary-hover-background) ;
+}
+
+#lesson_display{
+    color: green;
+}
+
+#lesson_display strong{
+    color: pink;
+}
+
+
 /* DAY -------------------------------------------------------*/
 
 section#DayHeader {
@@ -70,13 +97,7 @@ section#DayHeader {
     transition: all 200ms;
 }
 
-.day_article{
-    background-color:var(--pico-primary-background) ;
-}
 
-.day_article:hover{
-    background-color:var(--pico-primary-hover-background) ;
-}
 
 .uppercase{
     text-transform: uppercase;

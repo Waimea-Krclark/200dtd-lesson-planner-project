@@ -16,7 +16,7 @@
 
 {% block content %}
 
-    <article>
+    <article class="week_viewer">
         {% for day in days %}
 
             <article class="day_article" onclick="location.href='/day/{{ day.code }}'">
@@ -25,12 +25,12 @@
 
                     {% if lesson.day_code == day.code %}
 
-                        <p>{{ lesson.time | nicetime }} {{ lesson.name }}</p>
+                        <p id="lesson_display">{{ lesson.time | nicetime }} <strong>{{ lesson.name }}</strong></p>
 
                     {% endif %}
 
                 {% else %}
-
+ 
                     <p>No Lessons</p>  
 
                 {% endfor %}
