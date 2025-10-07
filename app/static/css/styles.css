@@ -2,7 +2,15 @@
   User stylesheet - Building upon PicoCSS
 =====================================================*/
 
+/* COLOUR SCHEME */
 
+:root {
+    --background-colour: #05040A;
+    --text-colour: #EDEBF5;
+    --primary-colour: #A899DF;
+    --secondary-colour: #38228D;
+    --accent-colour: #5B39DB;
+  }
 
 /* ABOUT PAGE -------------------------------------------- */
 
@@ -34,30 +42,115 @@
 #messages .message.success { color: var(--pico-color-green-500); }
 #messages .message.error   { color: var(--pico-color-red-500); }
 
+/* ALL PAGES ------------------------------------------------ */
+
+html{
+    background-color: var(--background-colour);
+}
+
+
+header{
+    background-color: #13111D;
+    min-width: 100%;
+    padding: 20px !important; 
+    /* !important tag overrides pico css */
+}
+
+nav{
+    width: 100%;
+}
+
+.nav_image{
+    height: 2rem;
+    display: block;
+    margin: 0 auto; 
+    margin-bottom: 5px; 
+}
+
+nav ul#nav_links li{
+    width: 6.5rem;
+    text-align: center;
+}
+
+nav a{
+    color: var(--primary-colour);
+}
+
+#page_title{
+    font-size:xx-large;
+}
+
+
+
+
 
 /* HOME PAGE -------------------------------------------------*/
 
 .week_viewer{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    background-color: var(--background-colour);
 }
 
 .day_article{
-    background-color:var(--pico-primary-background) ;
-    width: 19%;
-    min-height: 30rem;
+    background-color:#13111D ;
+    width: auto;
 }
+
+@media screen and (min-width: 700px) {
+    .week_viewer{
+        flex-direction: row;
+    }
+    
+    .day_article{
+        min-height: 30rem;
+        width: 19%;
+    }     
+}
+
 
 .day_article:hover{
-    background-color:var(--pico-primary-hover-background) ;
+    background-color: #221f35 ;
 }
 
-#lesson_display{
-    color: green;
+.day_long {
+    display: none;
 }
 
-#lesson_display strong{
-    color: pink;
+.day_short {
+    display: inline;
+}
+
+@media screen and (min-width: 1536px) {
+    .day_long {
+        display: inline;
+    }
+    
+    .day_short {
+        display: none;
+    }
+}
+
+.lesson_display {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+}
+
+.lesson_display .lesson_time {
+    color: var(--primary-colour);
+    font-size: 0.8em;
+    border-top: 2px solid var(--primary-colour);
+}
+
+.lesson_display .lesson_name {
+    font-weight: bold;
+    color: var(--text-colour);
+}
+
+h1{
+    color: var(--text-colour);
 }
 
 

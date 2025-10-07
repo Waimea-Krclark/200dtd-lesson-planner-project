@@ -1,7 +1,6 @@
 {#=====================================================
   Base template
   - Used as the basis of all pages
-  - Uses a light colour theme by default
   - Provides a main heading and navigation menu
   - Has blocks for the page title and main content
   - Loads PicoCSS and Pico Colours
@@ -25,9 +24,9 @@
     <script src="/static/js/utils.js"></script>
     <script src="/static/js/script.js"></script>
 
+    <link rel="stylesheet" href="/static/css/styles.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.slate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css">
-    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 
 <body>
@@ -35,13 +34,13 @@
     <header>
         <nav>
             <ul>
-                <li><strong><a href="/">LESSON PLANNER</a></strong></li>
+                <li><strong><a href="/" id="page_title">LESSON PLANNER</a></strong></li>
             </ul>
 
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/addlesson">Add Lesson</a></li>
-                <li><a href="/resources">Resources</a></li>
+            <ul id="nav_links">
+                <li><a href="/"><img src="/static/images/HomeIcon.png" class="nav_image">Home</a></li>
+                <li><a href="/addlesson"><img src="/static/images/addIcon.png" class="nav_image">Add Lesson</a></li>
+                <li><a href="/resources"><img src="/static/images/resourceIcon.png" class="nav_image">Resources</a></li>
             </ul>
         </nav>
     </header>

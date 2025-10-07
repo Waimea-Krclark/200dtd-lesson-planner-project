@@ -31,11 +31,12 @@ init_datetime(app)  # Handle UTC dates in timestamps
 @app.get("/")
 def index():
     with connect_db() as client:
-        # Get all the things from the DB
+        # Get all the days from the DB
         sql = "SELECT id, name, code FROM days ORDER BY id DESC"
         params = []
         result = client.execute(sql, params)
         days = result.rows
+        # get all lessons
         sql = "SELECT id, name, day_code, time FROM lessons ORDER BY time ASC"
         params = []
         result = client.execute(sql, params)
@@ -43,15 +44,6 @@ def index():
 
         # And show them on the page
         return render_template("pages/home.jinja", days=days, lessons = lessons)
-
-
-#-----------------------------------------------------------
-# Add Lesson page route
-#-----------------------------------------------------------
-@app.get("/addlesson/")
-def about():
-    return render_template("pages/addLesson.jinja")
-
 
 #-----------------------------------------------------------
 # Day page route - Show all the lessons with details and options for a day
@@ -78,48 +70,14 @@ def show_all_lessons(code):
         # And show them on the page
         return render_template("pages/day.jinja", lessons=lessons, day=day, resources=resources)
 
+
 #-----------------------------------------------------------
-# Resource page route - Show all resources
+# Add Lesson page route
 #-----------------------------------------------------------
-@app.get("/resources/")
-def show_resources():
-    with connect_db() as client:
-        # Get the resources  from the DB
-        sql = "SELECT * FROM resources" 
-        params = []
-        result = client.execute(sql, params)
-        resources = result.rows
-
-        sql = "SELECT id, name FROM lessons" 
-        params = []
-        result = client.execute(sql, params)
-        lessons = result.rows
-
-        return render_template("pages/resources.jinja", resources=resources, lessons=lessons)
-    
-#-----------------------------------------------------------
-# Editing Resource Route
-#-----------------------------------------------------------
-@app.get("/editResource/<int:resource_id>/<int:lesson_id>")
-def edit_resource(resource_id, lesson_id):
-    with connect_db() as client:
-        # Get the resources  from the DB
-        sql = "SELECT * FROM resources WHERE id = ?" 
-        params = [resource_id]
-        result = client.execute(sql, params)
-        resource = result.__getitem__(0)
-
-        sql = "SELECT * FROM lessons WHERE id = ?" 
-        params = [lesson_id]
-        result = client.execute(sql, params)
-        current_lesson = result.__getitem__(0)
-
-        sql = "SELECT id, name FROM lessons" 
-        params = []
-        result = client.execute(sql, params)
-        lessons = result.rows
-
-        return render_template("pages/editResource.jinja", resource=resource, lessons=lessons, resource_id=resource_id, current_lesson=current_lesson)
+@app.get("/addlesson/")
+def add_lesson():
+    # Reroutes to the page with lesson form
+    return render_template("pages/addLesson.jinja")
 
 #-----------------------------------------------------------
 # Route for adding a lessons, using data posted from a form
@@ -149,6 +107,65 @@ def add_a_lesson():
         # Go back to the home page
         flash(f"lesson '{name}' added", "success")
         return redirect("/")
+
+#-----------------------------------------------------------
+# Route for deleting a lesson, Id given in the route
+#-----------------------------------------------------------
+@app.get("/delete/<int:id>/<string:day>")
+def delete_a_lesson(id, day):
+    with connect_db() as client:
+        # Delete the Lesson from the DB
+        sql = "DELETE FROM lessons WHERE id=?"
+        params = [id]
+        client.execute(sql, params)
+
+        #returns back to the original day page
+        flash("Lesson deleted", "success")
+
+        return redirect(f"/day/{day}")
+
+#-----------------------------------------------------------
+# Resource page route - Show all resources
+#-----------------------------------------------------------
+@app.get("/resources/")
+def show_resources():
+    with connect_db() as client:
+        # Get the resources from the DB
+        sql = "SELECT * FROM resources" 
+        params = []
+        result = client.execute(sql, params)
+        resources = result.rows
+        # Get the lessons as well
+        sql = "SELECT id, name FROM lessons" 
+        params = []
+        result = client.execute(sql, params)
+        lessons = result.rows
+
+        return render_template("pages/resources.jinja", resources=resources, lessons=lessons)
+    
+#-----------------------------------------------------------
+# Editing Resource Route
+#-----------------------------------------------------------
+@app.get("/editResource/<int:resource_id>/<int:lesson_id>")
+def edit_resource(resource_id, lesson_id):
+    with connect_db() as client:
+        # Get the resources  from the DB
+        sql = "SELECT * FROM resources WHERE id = ?" 
+        params = [resource_id]
+        result = client.execute(sql, params)
+        resource = result.__getitem__(0)
+        # Get the lesson that the resource is linked to
+        sql = "SELECT * FROM lessons WHERE id = ?" 
+        params = [lesson_id]
+        result = client.execute(sql, params)
+        current_lesson = result.__getitem__(0)
+        # Retrieve other resources to add to selection
+        sql = "SELECT id, name FROM lessons" 
+        params = []
+        result = client.execute(sql, params)
+        lessons = result.rows
+
+        return render_template("pages/editResource.jinja", resource=resource, lessons=lessons, resource_id=resource_id, current_lesson=current_lesson)
 
 #-----------------------------------------------------------
 # Route for adding a resources, using data posted from a form
@@ -207,22 +224,6 @@ def edit_a_resource(resource_id):
         # Go back to the home page
         flash(f"resource '{name}' updated", "success")
         return redirect("/resources/")
-
-#-----------------------------------------------------------
-# Route for deleting a lesson, Id given in the route
-#-----------------------------------------------------------
-@app.get("/delete/<int:id>/<string:day>")
-def delete_a_lesson(id, day):
-    with connect_db() as client:
-        # Delete the Lesson from the DB
-        sql = "DELETE FROM lessons WHERE id=?"
-        params = [id]
-        client.execute(sql, params)
-
-        #returns back to the original day page
-        flash("Lesson deleted", "success")
-
-        return redirect(f"/day/{day}")
 
 #-----------------------------------------------------------
 # Route for deleting a resource, Id given in the route
