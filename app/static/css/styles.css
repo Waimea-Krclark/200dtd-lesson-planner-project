@@ -80,7 +80,17 @@ nav a{
     font-size:xx-large;
 }
 
+.primaryText{
+    color: var(--primary-colour);
+}   
 
+.defaultText{
+    color: var(--text-colour);
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
 
 
 
@@ -161,13 +171,30 @@ section#DayHeader {
     gap: 1rem;
 }
 
+#lessonDesc{
+    text-align: center;
+}
+
 .resource{
     display: flex;
     justify-content: space-between;
+    color: var(--text-colour);
 }
 
 .dropbtn{
     width: 100%;
+    background-color: var(--secondary-colour);
+    border: 0;
+    box-shadow: none;
+}
+
+.dropbtnActive{
+    width: 100%;
+    background-color: var(--secondary-colour);
+    border: 0;
+    box-shadow: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .DropdownCollapsed{
@@ -176,6 +203,13 @@ section#DayHeader {
     
 .DropdownOpen{
     display: block;
+    background-color: #13111D;
+    color: var(--text-colour);
+    border-bottom: 5px var(--secondary-colour) solid;
+    border-left: 5px var(--secondary-colour) solid;
+    border-right: 5px var(--secondary-colour) solid;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
 }
 
 .dropdownarrow{
@@ -190,9 +224,8 @@ section#DayHeader {
     transition: all 200ms;
 }
 
-
-
-.uppercase{
-    text-transform: uppercase;
-    color: var(--pico-primary-background);
+.gap{
+    padding-bottom: 1rem;
 }
+
+

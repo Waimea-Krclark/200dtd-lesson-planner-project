@@ -3,6 +3,7 @@ function dropdown(buttonID) {
     //Gets all elements that are collapsed dropdowns
     var elements = document.getElementsByClassName('DropdownCollapsed');
     var arrow = document.querySelector(`.dropdownarrow[id='${buttonID}']`);
+    var button = document.querySelector(`.dropbtn[id='${buttonID}']`);
     // Creates a found variable to see if opening succeeded
     let found = false;
 
@@ -12,6 +13,8 @@ function dropdown(buttonID) {
             // Change the class
             element.className = 'DropdownOpen'
             arrow.className = 'dropdownarrowActive'
+            button.className = 'dropbtnActive'
+
             found = true
         }
     }   
@@ -21,12 +24,14 @@ function dropdown(buttonID) {
     {
         var elements = document.getElementsByClassName('DropdownOpen');
         var arrow = document.querySelector(`.dropdownarrowActive[id='${buttonID}']`);
+        var button = document.querySelector(`.dropbtnActive[id='${buttonID}']`);
         
         for (const element of elements){
             if(element.id == buttonID){
                 // Change the class
                 element.className = 'DropdownCollapsed'
                 arrow.className = 'dropdownarrow'
+                button.className = 'dropbtn'
             }
         } 
     }
