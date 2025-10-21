@@ -20,7 +20,8 @@ A lesson planner, where each week can be set up with with lessons for each day f
 
 ## Project Links
 
-- [GitHub repo for the project](https://...)
+- [GitHub repo for the project](https://github.com/Waimea-Krclark/200dtd-lesson-planner-project)
+- [Project Documentation](https://waimea-krclark.github.io/200dtd-lesson-planner-project/)
 - [Live web app](https://...)
 
 

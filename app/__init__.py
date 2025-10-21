@@ -131,7 +131,7 @@ def delete_a_lesson(id, day):
 def show_resources():
     with connect_db() as client:
         # Get the resources from the DB
-        sql = "SELECT * FROM resources" 
+        sql = "SELECT * FROM resources ORDER BY lesson_id asc" 
         params = []
         result = client.execute(sql, params)
         resources = result.rows

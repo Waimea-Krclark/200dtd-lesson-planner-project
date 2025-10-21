@@ -3,7 +3,7 @@
 =====================================================*/
 
 /* COLOUR SCHEME */
-
+/* Set up commonly used colours as variables for easy use */
 :root {
     --background-colour: #05040A;
     --text-colour: #EDEBF5;
@@ -98,6 +98,7 @@ nav a{
 
 .week_viewer{
     display: flex;
+    /* Stacks days when display is too small */
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--background-colour);
@@ -108,7 +109,9 @@ nav a{
     width: auto;
 }
 
+/* Adjust site display based off screen dimensions */
 @media screen and (min-width: 700px) {
+    /* Resizes and displays days in rows for larger screen sizes */
     .week_viewer{
         flex-direction: row;
     }
@@ -124,6 +127,7 @@ nav a{
     background-color: #221f35 ;
 }
 
+/* Displays a shortened format of the day name Monday = Mon when screen is small */
 .day_long {
     display: none;
 }
@@ -133,6 +137,7 @@ nav a{
 }
 
 @media screen and (min-width: 1536px) {
+    /* Adjusts text to full length when screen can fit it */
     .day_long {
         display: inline;
     }
@@ -171,24 +176,49 @@ section#DayHeader {
     gap: 1rem;
 }
 
-#lessonDesc{
+.lessonDesc{
     text-align: center;
-}
-
-.resource{
-    display: flex;
-    justify-content: space-between;
     color: var(--text-colour);
 }
 
+.resources{
+    text-align: center;
+    background-color: #211E31;
+    width: 60%;
+}
+
+.displayedResource{
+    background-color: var(--secondary-colour) !important;
+    width: 100%;
+    border: 0 !important;
+    text-align: center;
+    border-radius: 10px;
+    padding: 3px !important;
+    margin: -5px !important;
+}
+
+.displayedResource:hover{
+    background-color: #442ba7 !important;
+}
+
+/* Default Dropdown heading style */
 .dropbtn{
+    margin-bottom: 1rem;
+    padding-bottom: 0px;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     background-color: var(--secondary-colour);
     border: 0;
     box-shadow: none;
+    align-items: center;
 }
 
+/* Open Dropdown heading style */
 .dropbtnActive{
+    padding-bottom: 0px;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     background-color: var(--secondary-colour);
     border: 0;
@@ -197,12 +227,16 @@ section#DayHeader {
     border-bottom-right-radius: 0px;
 }
 
+/* Dropdown Content invisible when closed */
 .DropdownCollapsed{
     display: none;
 }
     
+/* Dropdown Content renders and styles when open */
 .DropdownOpen{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #13111D;
     color: var(--text-colour);
     border-bottom: 5px var(--secondary-colour) solid;
@@ -212,20 +246,65 @@ section#DayHeader {
     border-top-left-radius: 0;
 }
 
+/* Dropdown arrow position */
 .dropdownarrow{
+    margin-top: -0.5rem;
     width: 3%;
     transform: scaleY(1);
     transition: all 200ms;
 }
 
+/* Active dropdown arrow position */
 .dropdownarrowActive{
+    margin-top: -0.5rem;
     width: 3%;
     transform: scaleY(-1);
     transition: all 200ms;
 }
 
-.gap{
-    padding-bottom: 1rem;
+.primaryButton{
+    background-color: var(--primary-colour) !important;
+    border: 0 !important;
+    color: var(--background-colour) !important;
+    font-weight: bold !important;
+}
+
+.primaryButton:hover{
+    background-color: #c2b1fd !important;
+}
+
+.deleteLesson{
+    width: 100%;
 }
 
 
+
+
+
+
+/* RESOURCES ------------------------------------------------------------------- */
+
+.resource{
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-colour);
+    background-color: #211E31;
+}
+
+
+.ShortResource{
+    display: block;
+}
+
+.LongResource{
+    display: none;
+}
+@media screen and (min-width: 1200px) {
+    .ShortResource{
+        display: none;
+    }
+
+    .LongResource{
+        display: block;
+    }
+}

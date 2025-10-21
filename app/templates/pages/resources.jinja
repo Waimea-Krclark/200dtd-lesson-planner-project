@@ -21,9 +21,10 @@
     <article>
         {% for resource in resources %}
             <article>
-                <p class="resource">
-                    {{ resource.name }}
-                    <a href="{{ resource.link }}" target="_blank" rel="noopener noreferrer"> {{ resource.link }}</a>
+
+                    <a class="ShortResource" href="{{ resource.link }}" target="_blank" rel="noopener noreferrer">{{ resource.name }}</a>
+                    <p class="LongResource">{{ resource.name }}</p>
+                    <p><a class="LongResource" href="{{ resource.link }}" target="_blank" rel="noopener noreferrer"> {{ resource.link }}</a></p>
 
                     {% for lesson in lessons %}
 
@@ -35,8 +36,6 @@
 
                     {% endfor %}
 
-                    
-                </p>
                 <p>{{ resource.notes }}</p>
 
                 <a role="button" href="/editResource/{{ resource.id }}/{{ resource.lesson_id }}" onclick="return confirm('Are you sure you want to edit this resource?');">Edit Resource</a>
