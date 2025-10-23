@@ -1,0 +1,53 @@
+{#=====================================================
+  Resource Conflict page
+  - Displays the resources that need to be fixed
+  - User can delete or update the lesson of the resources through a form
+=====================================================#}
+
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %}
+
+    Flask Demo - Resource Conflict
+
+{% endblock %}
+
+
+{% block content %}
+
+    <article>
+        <h3>ERROR - RESOURCE CONFLICT</h3>
+        <p>Resources:</p>
+        <ul>
+            {% for resource in resources %}
+                <li>{{resource.name}}</li>
+            {% endfor %}
+        </ul>
+        
+        <p>The listed resources were connected to a lesson that was just deleted. Do you want to delete the resources listed or reassign them?</p>
+
+        <article>
+            <a role="button" href="/removeConflicts/{{ lesson_id }}">Delete Conflicting Resources</a>
+        </article>
+        
+        <article>
+            <form action="/updateConflicts/{{ lesson_id }}" method="POST">
+                   <p>Change Lesson:</p>
+                   <select name="lesson" aria-label="Select Lesson" required >
+
+                       {% for lesson in lessons %}
+
+                           <option>{{ lesson.name }}</option>
+
+                       {% endfor %}
+                   </select>
+
+               <input type="submit" value="Update Conflicting Resources"/>
+            </form>
+        </article>
+        
+    </article>
+
+{% endblock %}
+

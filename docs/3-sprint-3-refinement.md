@@ -26,6 +26,12 @@ The web app is fully implemented with a refined UI:
 
 ---
 
+While Designing the website, I discovered a major bug that occured when deleting a lesson that has resources connected to it. The lesson gets deleted but the resource remains, keeping the ID of the lesson saved, so when the resource is interacted with, an error is thrown as the resource has an out of bounds lesson_id parameter. To solve this I made it also delete resources connected to that lesson when the lesson is deleted.
+
+Showing this to my end-user, I got feedback saying that it would be better if the user had and option to delete or reassign, as the resources could still be used or needed by the user. To achieve this i set up a system that allows the conflicting resources to be reassigned to a new lesson or deleted, to prevent errors.
+
+---
+
 ## Testing FEATURE NAME HERE
 
 Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing

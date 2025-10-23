@@ -119,10 +119,78 @@ def delete_a_lesson(id, day):
         params = [id]
         client.execute(sql, params)
 
-        #returns back to the original day page
+        # Gets resources connected to the lesson
+        sql = "SELECT * FROM resources WHERE lesson_id=?" 
+        params = [id]
+        result = client.execute(sql, params)
+        resources = result.rows
+
+        # Checks if any exist, if so resolve resource conflicts
+        if(resources):
+            return redirect(f"/conflict/{id}")
+
+        #Returns back to the original day page
         flash("Lesson deleted", "success")
 
         return redirect(f"/day/{day}")
+
+#-----------------------------------------------------------
+# Route to resource conflicts (WHEN DELETING A LESSON WITH RESOURCES)
+#-----------------------------------------------------------
+@app.get("/conflict/<int:lesson_id>")
+def reconfigure_resource(lesson_id):
+    with connect_db() as client:
+        # Get the resources  from the DB
+        sql = "SELECT * FROM resources WHERE lesson_id = ?" 
+        params = [lesson_id]
+        result = client.execute(sql, params)
+        resources = result.rows
+        # Retrieve other resources to add to selection
+        sql = "SELECT id, name FROM lessons" 
+        params = []
+        result = client.execute(sql, params)
+        lessons = result.rows
+
+        return render_template("pages/resourceConflict.jinja", resources=resources, lessons=lessons, lesson_id=lesson_id)
+
+#-----------------------------------------------------------
+# Route For updating conflicts
+#-----------------------------------------------------------
+@app.post("/updateConflicts/<int:lesson_id>")
+def update_conflicts(lesson_id):
+    # Get the data from the form
+    lesson = request.form.get("lesson")
+
+    with connect_db() as client:
+        # Get the new lesson id from the name posted by the form
+        sql = "SELECT id FROM lessons WHERE name=?"
+        params = [lesson]
+        result = client.execute(sql, params)
+        lesson = result.__getitem__(0)
+        # Set the resources lesson_id to the new one retrieved from the form
+        sql = "UPDATE resources SET lesson_id = ? WHERE lesson_id = ?;"
+        params = [lesson[0], lesson_id]
+        client.execute(sql, params)
+
+        # Go back to the home page
+        flash(f"Resource conflict resolved", "success")
+        return redirect("/")
+
+#-----------------------------------------------------------
+# Route For deleting conflicts
+#-----------------------------------------------------------
+@app.get("/removeConflicts/<int:lesson_id>")
+def delete_conflicts(lesson_id):
+    with connect_db() as client:
+        # Delete the conflicting resources from the DB
+        sql = "DELETE FROM resources WHERE lesson_id=?"
+        params = [lesson_id]
+        client.execute(sql, params)
+
+        #Returns back to the resources page
+        flash("Resource conflict solved", "success")
+
+        return redirect("/")
 
 #-----------------------------------------------------------
 # Resource page route - Show all resources
@@ -144,7 +212,7 @@ def show_resources():
         return render_template("pages/resources.jinja", resources=resources, lessons=lessons)
     
 #-----------------------------------------------------------
-# Editing Resource Route
+# Editing Resource Route - gets needed info then reroutes to the update page
 #-----------------------------------------------------------
 @app.get("/editResource/<int:resource_id>/<int:lesson_id>")
 def edit_resource(resource_id, lesson_id):
@@ -182,12 +250,12 @@ def add_a_resource():
     name = html.escape(name)
 
     with connect_db() as client:
-        # get the code of the selected day
+        # get the code of lesson
         sql = "SELECT id FROM lessons WHERE name=?"
         params = [lesson]
         result = client.execute(sql, params)
         lesson = result.__getitem__(0)
-        # Add the lesson to the DB
+        # Add the resource to the DB
         sql = "INSERT INTO resources (name, notes, link, lesson_id) VALUES (?, ?, ?, ?)"
         params = [name, notes, link, lesson[0]]
         client.execute(sql, params)
@@ -211,17 +279,17 @@ def edit_a_resource(resource_id):
     name = html.escape(name)
 
     with connect_db() as client:
-        # get the code of the selected day
+        # get the code of the new lesson
         sql = "SELECT id FROM lessons WHERE name=?"
         params = [lesson]
         result = client.execute(sql, params)
         lesson = result.__getitem__(0)
-        # Add the lesson to the DB
+        # Update the resoure with the new data
         sql = "UPDATE resources SET name = ?, notes = ?, link = ?, lesson_id = ? WHERE id = ?;"
         params = [name, notes, link, lesson[0], resource_id]
         client.execute(sql, params)
 
-        # Go back to the home page
+        # Return to the resources page
         flash(f"resource '{name}' updated", "success")
         return redirect("/resources/")
 
