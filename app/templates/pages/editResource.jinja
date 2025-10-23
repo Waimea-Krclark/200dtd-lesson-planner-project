@@ -38,11 +38,11 @@
 
                         {% if lesson.name == current_lesson.name %}
 
-                            <option selected>{{ lesson.name }}</option>
+                            <option selected>{{ lesson.name }} - <p class="uppercase">{{ lesson.day_code }}</p></option>
                             
                         {% else %}
 
-                            <option>{{ lesson.name }}</option>
+                            <option>{{ lesson.name }} - <p class="uppercase">{{ lesson.day_code }}</p></option>
 
                         {%endif%}
 

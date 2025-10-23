@@ -146,7 +146,7 @@ def reconfigure_resource(lesson_id):
         result = client.execute(sql, params)
         resources = result.rows
         # Retrieve other resources to add to selection
-        sql = "SELECT id, name FROM lessons" 
+        sql = "SELECT id, name, day_code FROM lessons" 
         params = []
         result = client.execute(sql, params)
         lessons = result.rows
@@ -228,7 +228,7 @@ def edit_resource(resource_id, lesson_id):
         result = client.execute(sql, params)
         current_lesson = result.__getitem__(0)
         # Retrieve other resources to add to selection
-        sql = "SELECT id, name FROM lessons" 
+        sql = "SELECT id, name, day_code FROM lessons" 
         params = []
         result = client.execute(sql, params)
         lessons = result.rows
