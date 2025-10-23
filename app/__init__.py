@@ -158,8 +158,9 @@ def reconfigure_resource(lesson_id):
 #-----------------------------------------------------------
 @app.post("/updateConflicts/<int:lesson_id>")
 def update_conflicts(lesson_id):
-    # Get the data from the form
+    # Get the data from the form (removes the " - MON" day codes from the lesson names)
     lesson = request.form.get("lesson")
+    lesson = lesson[:-6]
 
     with connect_db() as client:
         # Get the new lesson id from the name posted by the form
@@ -204,7 +205,7 @@ def show_resources():
         result = client.execute(sql, params)
         resources = result.rows
         # Get the lessons as well
-        sql = "SELECT id, name FROM lessons" 
+        sql = "SELECT id, name, day_code FROM lessons" 
         params = []
         result = client.execute(sql, params)
         lessons = result.rows
@@ -240,9 +241,10 @@ def edit_resource(resource_id, lesson_id):
 #-----------------------------------------------------------
 @app.post("/addResource")
 def add_a_resource():
-    # Get the data from the form
+    # Get the data from the form (removes the " - MON" day codes from the lesson names)
     name  = request.form.get("name")
     lesson = request.form.get("lesson")
+    lesson = lesson[:-6]
     link = request.form.get("link")
     notes = request.form.get("notes")
 
@@ -269,9 +271,10 @@ def add_a_resource():
 #-----------------------------------------------------------
 @app.post("/updateResource/<int:resource_id>")
 def edit_a_resource(resource_id):
-    # Get the data from the form
+    # Get the data from the form (removes the " - MON" day codes from the lesson names)
     name  = request.form.get("name")
     lesson = request.form.get("lesson")
+    lesson = lesson[:-6]
     link = request.form.get("link")
     notes = request.form.get("notes")
 

@@ -67,7 +67,7 @@
                     </option>
                     {% for lesson in lessons %}
 
-                        <option>{{ lesson.name }}</option>
+                        <option>{{ lesson.name }} - {{ lesson.day_code | upper }}</option>
 
                     {% endfor %}
                 </select>

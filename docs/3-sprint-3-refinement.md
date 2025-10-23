@@ -30,6 +30,8 @@ While Designing the website, I discovered a major bug that occured when deleting
 
 Showing this to my end-user, I got feedback saying that it would be better if the user had and option to delete or reassign, as the resources could still be used or needed by the user. To achieve this i set up a system that allows the conflicting resources to be reassigned to a new lesson or deleted, to prevent errors.
 
+![New conflicts menu](screenshots/ResourceConflict.png)
+
 ---
 
 ## Testing FEATURE NAME HERE
