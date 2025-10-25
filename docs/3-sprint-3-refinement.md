@@ -34,17 +34,19 @@ Showing this to my end-user, I got feedback saying that it would be better if th
 
 ---
 
-## Testing FEATURE NAME HERE
+## Resources lesson clarification
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+One of the things my end-user commented on was the lessons listing when creating or editing a resource. Currently it will just display all the options by name, and the user can select the lesson, however my end user said that there may be multiple of the same or similar lessons in a week and it should be clear which one is which.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+
+![Old Lessons display](screenshots/ResourceLessons.png)
+![Lessons with same name](screenshots/SameLessonsError.png)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+To solve this, I made the lessons display what day they are as well, making it a lot more obvious which lesson is which. I showed this to my end user who agreed it looked better and was more clear for the user. Doing this introduced a bug, because the name of the lesson displaying wasn't exactly the same as the real lessons name in the database as it was also including the day. Since the way it is formated and the fact is uses the 3 character day code, I can remove the last 6 characters from the string ( - MON) which will return it back to the exact lesson name everytime so it can be checked with the database.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![New display showing day code as well](screenshots/UpdatedLessonResources.png)
 
 
 ---
