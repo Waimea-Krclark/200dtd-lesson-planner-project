@@ -16,27 +16,27 @@
 {% block content %}
 
 
-    <article>
+    <article class="formArticle">
 
         <h3>Add new lesson</h3>
 
         <form action="/addLesson" method="POST">
             <fieldset role="group">
-                <input
+                <input class="formInputs"
                     type="text"
                     name="name"
                     placeholder="Lesson Name"
                     required
                 />
 
-                <input
+                <input class="formInputs"
                     type="time"
                     name="time"
                     placeholder="Select Time"
                     required
                 />
             
-                <select name="day" aria-label="Select Day" required>
+                <select class="formInputs" name="day" aria-label="Select Day" required>
                     <option selected disabled value="">
                       Select Day
                     </option>
@@ -48,13 +48,13 @@
                 </select>
             </fieldset>
 
-            <input
+            <input class="formInputs"
                 type="text"
                 name="description"
                 placeholder="Description of the lesson"
             >
             
-            <input type="submit" value="Add the Lesson"/>
+            <input class="primaryButton" type="submit" value="Add the Lesson"/>
         </form>
 
     </article>

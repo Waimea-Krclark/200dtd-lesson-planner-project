@@ -92,11 +92,38 @@ nav a{
     text-transform: uppercase;
 }
 
+.primaryButton{
+    background-color: var(--primary-colour) !important;
+    border: 0 !important;
+    color: var(--background-colour) !important;
+    font-weight: bold !important;
+}
 
+.primaryButton:hover{
+    background-color: #c2b1fd !important;
+}
+
+.formInputs{
+    background-color: #221f35;
+    border-color: var(--secondary-colour);
+}
+
+.formArticle{
+    background-color: #13111D;
+}
+
+.formArticle h3{
+    color: var(--primary-colour);
+    text-align: center;
+}
+
+.formArticle p{
+    color: var(--text-colour);
+}
 
 /* HOME PAGE -------------------------------------------------*/
 
-.week_viewer{
+.weekViewer{
     display: flex;
     /* Stacks days when display is too small */
     flex-direction: column;
@@ -104,7 +131,7 @@ nav a{
     background-color: var(--background-colour);
 }
 
-.day_article{
+.dayArticle{
     background-color:#13111D ;
     width: auto;
 }
@@ -112,54 +139,54 @@ nav a{
 /* Adjust site display based off screen dimensions */
 @media screen and (min-width: 700px) {
     /* Resizes and displays days in rows for larger screen sizes */
-    .week_viewer{
+    .weekViewer{
         flex-direction: row;
     }
     
-    .day_article{
+    .dayArticle{
         min-height: 30rem;
         width: 19%;
     }     
 }
 
 
-.day_article:hover{
+.dayArticle:hover{
     background-color: #221f35 ;
 }
 
 /* Displays a shortened format of the day name Monday = Mon when screen is small */
-.day_long {
+.dayLong {
     display: none;
 }
 
-.day_short {
+.dayShort {
     display: inline;
 }
 
 @media screen and (min-width: 1536px) {
     /* Adjusts text to full length when screen can fit it */
-    .day_long {
+    .dayLong {
         display: inline;
     }
     
-    .day_short {
+    .dayShort {
         display: none;
     }
 }
 
-.lesson_display {
+.lessonDisplay {
     display: flex;
     flex-direction: column;
     gap: 0.1em;
 }
 
-.lesson_display .lesson_time {
+.lessonDisplay .lessonTime {
     color: var(--primary-colour);
     font-size: 0.8em;
     border-top: 2px solid var(--primary-colour);
 }
 
-.lesson_display .lesson_name {
+.lessonDisplay .lessonName {
     font-weight: bold;
     color: var(--text-colour);
 }
@@ -262,43 +289,45 @@ section#DayHeader {
     transition: all 200ms;
 }
 
-.primaryButton{
-    background-color: var(--primary-colour) !important;
-    border: 0 !important;
-    color: var(--background-colour) !important;
-    font-weight: bold !important;
-}
-
-.primaryButton:hover{
-    background-color: #c2b1fd !important;
-}
-
 .deleteLesson{
     width: 100%;
 }
 
 
-
-
-
-
 /* RESOURCES ------------------------------------------------------------------- */
+
+#resourceArticle{
+    background-color: #13111D;
+    color: var(--text-colour);
+}
 
 .resource{
     display: flex;
     justify-content: space-between;
     color: var(--text-colour);
-    background-color: #211E31;
+    
 }
 
+.resourceDescription{
+    background-color: #211E31;
+    text-align: center;
+}
 
+.resourceDescription p{
+    color: var(--text-colour);
+}
+
+/* Shortened Version of the resource name and link displays by default */
 .ShortResource{
     display: block;
+    color: var(--text-colour);
 }
 
 .LongResource{
     display: none;
 }
+
+/* Depending on screen width will change to full display of name and link for the resource */
 @media screen and (min-width: 1200px) {
     .ShortResource{
         display: none;
@@ -306,5 +335,36 @@ section#DayHeader {
 
     .LongResource{
         display: block;
+        color: var(--text-colour);
     }
 }
+
+.resourceButton{
+    width: 20%;
+}
+
+/* CONFLICTS ------------------------------------------------------------------------------------- */
+
+.conflict h4{
+    color: var(--primary-colour);
+    font-weight: bold;
+}
+
+.conflict li{
+    padding-bottom: 3px;
+    margin-bottom: 1em;
+    border-bottom: var(--secondary-colour) 2px solid;
+}
+
+#conflictDelete{
+    background-color: #13111D;
+}
+
+#conflictDelete a{
+    width: 100%;
+}
+
+#conflictChange{
+    background-color: #1a1727;
+}
+

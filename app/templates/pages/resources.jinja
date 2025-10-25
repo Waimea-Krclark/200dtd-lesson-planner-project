@@ -18,75 +18,76 @@
 
     <h1>Resources</h1>
 
-    <article>
-        {% for resource in resources %}
-            <article>
+    
+    {% for resource in resources %}
+        <article id="resourceArticle">
+            <section class="resource">
+                <a class="ShortResource" href="{{ resource.link }}" target="_blank" rel="noopener noreferrer">{{ resource.name }}</a>
+                <p class="LongResource">{{ resource.name }}</p>
+                <p><a class="LongResource" href="{{ resource.link }}" target="_blank" rel="noopener noreferrer"> {{ resource.link }}</a></p>
 
-                    <a class="ShortResource" href="{{ resource.link }}" target="_blank" rel="noopener noreferrer">{{ resource.name }}</a>
-                    <p class="LongResource">{{ resource.name }}</p>
-                    <p><a class="LongResource" href="{{ resource.link }}" target="_blank" rel="noopener noreferrer"> {{ resource.link }}</a></p>
+                {% for lesson in lessons %}
 
-                    {% for lesson in lessons %}
+                    {% if lesson.id == resource.lesson_id %}
 
-                        {% if lesson.id == resource.lesson_id %}
+                        Lesson: {{ lesson.name }}
 
-                            Lesson: {{ lesson.name }}
-
-                        {% endif %}
-
-                    {% endfor %}
-
+                    {% endif %}
+                    
+                {% endfor %}
+            </section>
+                
+            <article class="resourceDescription">
                 <p>{{ resource.notes }}</p>
+                <a class="primaryButton resourceButton" role="button" href="/editResource/{{ resource.id }}/{{ resource.lesson_id }}" onclick="return confirm('Are you sure you want to edit this resource?');">Edit Resource</a>
+                <a class="primaryButton resourceButton" role="button" href="/remove/{{ resource.id }}" onclick="return confirm('Are you sure you want to delete this resource?');">Remove Resource</a>
+            </article>  
+        </article>
 
-                <a role="button" href="/editResource/{{ resource.id }}/{{ resource.lesson_id }}" onclick="return confirm('Are you sure you want to edit this resource?');">Edit Resource</a>
-                <a role="button" href="/remove/{{ resource.id }}" onclick="return confirm('Are you sure you want to delete this resource?');">Remove Resource</a>
-            </article>
-            
+    {% else %}
 
-        {% else %}
+        <p>No Lessons</p> 
 
-            <p>No Lessons</p> 
+    {% endfor %}
 
-        {% endfor %}
-    </article>
-    <article> 
+    <article class="formArticle"> 
         <h3>Add new resource</h3>
 
         <form action="/addResource" method="POST">
             <fieldset role="group">
-                <input
+                <input class="formInputs"
                     type="text"
                     name="name"
                     placeholder="Resource Name"
                     required
                 />
             
-                <select name="lesson" aria-label="Select Lesson" required>
+                <select class="formInputs" name="lesson" aria-label="Select Lesson" required>
                     <option selected disabled value="">
                       Select Lesson
                     </option>
                     {% for lesson in lessons %}
 
-                        <option>{{ lesson.name }} - {{ lesson.day_code | upper }}</option>
+                        <option>{{ lesson.name }} - {{ lesson.day_code | upper}}</option>
 
                     {% endfor %}
                 </select>
             </fieldset>
             
-            <input
+            <input class="formInputs"
                 type="text"
                 name="link"
                 placeholder="Paste Resource Link"
                 required
             />
 
-            <input
+            <input class="formInputs"
                 type="text"
                 name="notes"
                 placeholder="Short Note For Resource"
             >
 
-            <input type="submit" value="Add the Resource"/>
+            <input class="primaryButton" type="submit" value="Add the Resource"/>
         </form>
     </article>
 {% endblock %}

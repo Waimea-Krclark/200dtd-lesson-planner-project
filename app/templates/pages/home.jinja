@@ -16,21 +16,21 @@
 
 {% block content %}
 
-    <article class="week_viewer">
+    <article class="weekViewer">
         {% for day in days %}
 
-            <article class="day_article" onclick="location.href='/day/{{ day.code }}'">
+            <article class="dayArticle" onclick="location.href='/day/{{ day.code }}'">
                 <h2>
-                    <span class="day_short">{{ day.code | capitalize  }}</span>
-                    <span class="day_long">{{ day.name  }}</span>
+                    <span class="dayShort">{{ day.code | capitalize  }}</span>
+                    <span class="dayLong">{{ day.name  }}</span>
                 </h2>
                 {% for lesson in lessons %}
 
                     {% if lesson.day_code == day.code %}
 
-                        <p class="lesson_display">
-                            <span class="lesson_time">{{ lesson.time | nicetime }}</span> 
-                            <span class="lesson_name">{{ lesson.name }}</span>
+                        <p class="lessonDisplay">
+                            <span class="lessonTime">{{ lesson.time | nicetime }}</span> 
+                            <span class="lessonName">{{ lesson.name }}</span>
                         </p>
 
                     {% endif %}
