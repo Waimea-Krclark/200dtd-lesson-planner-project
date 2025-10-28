@@ -320,7 +320,7 @@ section#DayHeader {
 /* Shortened Version of the resource name and link displays by default */
 .ShortResource{
     display: block;
-    color: var(--text-colour);
+    color: #778FF7 !important;
 }
 
 .LongResource{
@@ -338,6 +338,19 @@ section#DayHeader {
         color: var(--text-colour);
     }
 }
+
+a.LongResource {
+    color: #778FF7 ;
+}
+
+a.LongResource:hover {
+    color: #B0C0FF ;
+}
+
+.ShortResource:hover{
+    color: #B0C0FF !important;
+}
+
 
 .resourceButton{
     width: 20%;
