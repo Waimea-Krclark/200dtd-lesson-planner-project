@@ -19,10 +19,9 @@ Replace this text with notes regarding the DB schema.
 
 ## Final Implementation
 
-The web app is fully implemented with a refined UI:
+The Database remains the same as no changes were needed for the final impementaion from the original functioning page.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE SYSTEM HERE**
-
+![Same Database as previously](screenshots/ImplementedDB.png)
 
 ---
 
@@ -51,18 +50,20 @@ To solve this, I made the lessons display what day they are as well, making it a
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Web app use on different devices
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+The webapp was created on a pc and therefore was only designed to work properly on that device, other devices with smaller screen sizes or differnt aspect ratios could lead to content not displaying correctly. For example on phone screens a lot of the time the text would not be wrapping correctly and would go off the page, or elemements could be squished too much to be readable or useable. My end-user said that a lesson planner would likely be used on a wide range of devices like phones, laptops and desktops as it would be helpful for users to be able to access and change the information and see their plan from anywhere at any time. This means I need to make the application would on a wide variety of screen sizes to make it compatible with these devices.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Incorrect formatting for small screen](screenshots/Nowrap.png)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I went through the web app and found areas that the website doesnt work at small screen sizes, adjusting where necessary. I found quite a few examples where this occured, and got things to correctly format/ wrap where necessary to display well on any screen. I showed this to my end-user who thought it was better, but had feedback on some other parts saying that they should be adjusted slightly to make it even more clear on smaller screens, for example, reducing the full day display on the homepage to just the first 3 characters to make it more understandable on slim devices where the test could still overlap.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![Correctly wrapping at any screen size](screenshots/wrapping.png)
+![Stacked lessons on small screen](<screenshots/Stacked lessons.png>)
 
+Another example i found was in the resources list where the link and the name could overlap a lot and be pushed off the screen on smaller sizes, so I formatted it to display the Link and the name as one element on small screens, saving space and making the site more readable to users. When I showed this final iteration to my end-user, it was appreciated a lot I got feedback saying that it worked well on a lot of devices and was much more accesible to users that couldn't access a computer.
 
 ---
 

@@ -16,12 +16,12 @@
 {% block content %}
 
 
-    <article>
+    <article class="formArticle">
         <h3>Edit resource: {{ resource.name }}</h3>
 
         <form action="/updateResource/{{resource_id}}" method="POST">
             <fieldset role="group">
-                <input
+                <input class="formInputs"
                     type="text"
                     name="name"
                     placeholder="Resource Name"
@@ -29,7 +29,7 @@
                     required
                 />
             
-                <select name="lesson" aria-label="Select Lesson" required >
+                <select class="formInputs" name="lesson" aria-label="Select Lesson" required >
                     <option selected disabled value="">
                       <p>{{ current_lesson.name }} (Current Lesson)</p>
                     </option>
@@ -50,7 +50,7 @@
                 </select>
             </fieldset>
             
-            <input
+            <input class="formInputs"
                 type="text"
                 name="link"
                 placeholder="Paste Resource Link"
@@ -58,14 +58,14 @@
                 required
             />
 
-            <input
+            <input class="formInputs"
                 type="text"
                 name="notes"
                 placeholder="Short Note For Resource"
                 value="{{ resource.notes }}"
             >
 
-            <input type="submit" value="Update Resource"/>
+            <input class="primaryButton" type="submit" value="Update Resource"/>
         </form>
     </article>
 

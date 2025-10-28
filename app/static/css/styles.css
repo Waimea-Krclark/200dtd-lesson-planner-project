@@ -206,6 +206,7 @@ section#DayHeader {
 .lessonDesc{
     text-align: center;
     color: var(--text-colour);
+    overflow-wrap: anywhere ;
 }
 
 .resources{
@@ -340,7 +341,7 @@ section#DayHeader {
 }
 
 .resourceButton{
-    width: 20%;
+    min-width: 20%;
 }
 
 /* CONFLICTS ------------------------------------------------------------------------------------- */
