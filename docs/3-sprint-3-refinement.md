@@ -8,22 +8,17 @@ Develop the system until it is fully featured, with a refined UI and it satisfie
 
 ---
 
-## Updated Database Schema (if it changed)
-
-Replace this text with notes regarding the DB schema.
-
-![SCREENSHOT OF DB SCHEMA](screenshots/example.png)
-
-
----
-
-## Final Implementation
+## Updated Database Scheme (If it changed)
 
 The Database remains the same as no changes were needed for the final impementaion from the original functioning page.
 
 ![Same Database as previously](screenshots/ImplementedDB.png)
 
 ---
+
+## Final Implementation
+
+
 
 While Designing the website, I discovered a major bug that occured when deleting a lesson that has resources connected to it. The lesson gets deleted but the resource remains, keeping the ID of the lesson saved, so when the resource is interacted with, an error is thrown as the resource has an out of bounds lesson_id parameter. To solve this I made it also delete resources connected to that lesson when the lesson is deleted.
 
@@ -67,18 +62,26 @@ Another example i found was in the resources list where the link and the name co
 
 ---
 
-## Testing FEATURE NAME HERE
+## Colour Scheme Implementation
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+Using the colour scheme that was decided on by the end user, I redesigned the site to use these colours in the same way that was in the plan for the site, and showed this to my end-user, who went through the site testing it with the new colours. The Initial colour scheme did fit well and was very readable for users, however there were some areas that could use some slight colour changes for clarity. One example of this was with the resources in a lesson, which didn't stand out against the rest of the lesson, which could make it a bit confusing.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Old Dropdown where resources have no background](screenshots/OldResourceBox.png)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I went through places that could benefit from colour changes for clarity, deviating from the colour scheme slightly with lighter or darker shades of the colour scheme to help group things together for clarity. Below is the same lesson dropdown with the updated colours.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![New resource BG colour adds clarity](screenshots/NewResourceBox.png)
 
+This makes groups and different elements look a lot better, improving clarity for users and helping stop them from getting lost. My end-user thought that this was a very good change, but also suggested that for further clarity I should use these different colours on things like links and buttons to make it more obvious that they can be interacted with.
+I went through the interactable elements adding a hover effect which made them a lot more obvious to users that they could click on these elements. My end-user thought that this was also a great change when shown it.
+
+Old:
+![Days without a hover effect](screenshots/NoHover.gif)
+
+Improved:
+![Days with the hover effect](screenshots/WithHover.gif)
 
 ---
 
