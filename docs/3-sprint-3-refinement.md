@@ -89,5 +89,5 @@ Improved:
 
 ## Sprint Review
 
-My end-user is very pleased by the outcome of the lesson planner. It is in a refined state that functions as intended, fits the requirements of the user, and has clear, well designed UI meant to look attractive as well as keep the website easy to use and help users navigate it. My end-user has no more feedback on what could be improved and thinks that the application is helpful to the its end-users, as teachers would be able to easily plan their week ahead of time to reduce stress and cognitive load. 
+My end-user is very pleased by the outcome of the lesson planner. It is in a refined state that functions as intended, fits the requirements of the user, and has clear, well designed UI meant to look attractive as well as keep the website easy to use and help users navigate it. My end-user has no more feedback on what could be improved and thinks that the application is helpful to the its end-users, as teachers would be able to easily plan their week ahead of time to reduce stress and cognitive load. The feedback i did get while designing the site's UI has improved it for users, as it is now a lot more clear and easy to use, as well as being more accessible across a range of devices. I believe that the lesson planner is in its best state and does not need further improvements.
 
