@@ -9,31 +9,25 @@ To address the useability heuristic, I did a number of things to ensure that the
 
 ### END-USER IMPLICATION
 
-As my end-users are teachers, my Lesson Planner needed to be designed to suit their needs, so that the site would actually be useful to them. When prototyping and planning my website, I added features that a teacher would find useful, such as being able to add resources to lessons, as  well as lesson/resource descriptions or notes.
+As my end-users are teachers, my Lesson Planner needed to be designed to suit their needs, so that the site would actually be useful to them. When prototyping and planning my website, I added features that a teacher would find useful, such as being able to add resources to lessons, as  well as lesson/resource descriptions or notes. These allow for end-users to plan their lessons ahead without having to remember things about the lessons as it can be prepared ahead of time to reduce cognitive load. Another End-user requirement would be access on a range of devices, teachers primarily would use a laptop for this, but also would find use on other devices like phones. To address this, I designed the site to work on a range of devices and screen sizes, formatting the site as needed to be functonal and efficient for users no matter what the access the site on.
 
 
-### NAME OF IMPLICATION 3
+### FUNCTIONALITY IMPLICATION
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
-
-
-### NAME OF IMPLICATION 4
-
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+Addressing the functionality implication means making a application that functions well. While developing the site, I made sure to fix any bugs I discovered and also tested new features and the functionality of my Lesson Planner a lot with my end-user, making sure that as well as working well and not having bugs or errors that it also fit the needs of the end-user. Through a lot of testing, I have created a working lesson planner that can handle inputs by users, handling invalid user inputs and data to prevent errors, as well as check that are made to stop potential errors, like when deleting a lesson that has resources linked to it. By preventing errors and testing my site with my end user, I have created a Lesson planner that functions well both technically and for its purpose.
 
 
-### NAME OF IMPLICATION 5
+### AESTHETIC IMPLICATION
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+For this implication, I needed to ensure that my site was aesthetically pleasing to its users, while also clearly communcating the sites function to users so that they know what is happening with the site and what their options are. To adress this implication, I made sure to pick out a colour scheme for the site alognside  my end user, making sure that I found one that looked good, while also being clear to users, contrasting well between text and backgrounds, and also fitting the context of the lesson planner. I ensured that the site was designed and layed out so that users wouldn't get lost, would know what the page does and how to use it, and wouldn't miss any important information or functions. I did a lot of testing with the end-user to design a site that looks good, but also would be clear to the end user on how to use without it being busy and cluttered. Creating my website with these colours and layout produced a clea, easy to understand lesson planner that was aesthetically pleasing while remaining easy to use and clear to users at a glance.
 
+
+### ACCESSIBILITY IMPLICATION
+
+To make my Lesson Planner a lot more accessible to its users who will have a wide range of ability and technical skill, I have done a number of things. The site was designed right from the initial prototyping to be clear and easy to navigate for users, the systems for interacting witht the sites functions are simple and straightforward with the users only needing to fill out information in forms to post to the database, helpng users who may not have high technical skills operate the site with ease. In terms of design, I used contrasting colours to make the text stand out from the background so that it is easy to read, helping some users who may struggle with colours or have a vision imparement be able to use the lesson planner effectively. Though the site has very little images, the ones that do appear has alt texts to improves accessibility. From the design of the pages to the function of the website I have taken steps to try help a wide range of users to effectively be able to use the site regardless of technical skills or potential disabilities.
 
 ---
 
 ## Overall Review
 
-Replace these words with a brief review of how the project went in terms of:
-- What went well?
-- What didn't go so well?
-- How did the testing/trialling impact the final system?
-- What would you do differently if you could?
-
+My Lesson planner turned out very well, and my end user is pleased with the result, as it fulfills its purpose and is useful to its end users in its function of a lesson planner. Through the different sprints I could optimise and test my plans and developments with my end user to produce a better outcome that better fit its purpose. I did a lot of testing both with what I found and also with the end-user, allowing me to discover and fix any bugs that occured ensuring my site works as it should without errors or the site or database breaking due to invalid data. Overall development went well, and I am pleased with it, there weren't many struggles with the site, however the dropdowns took a lot of work to get working with the javascript and css together to make it work and look good. Both me and my end user are happy with the lesson planner and it fulfills its purpose, and is also useable for a wide range of users due to a number of steps to make it accessible and easy to navigate and operate. Though the lesson planner suceeds in serving the needs of the end user, if I were do do something differently I would try to add a system where multiple weeks can be planned ahead, for example allowing for a term to be planned out week by week ahead of time.
